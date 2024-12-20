@@ -1,0 +1,160 @@
+.fv {
+  $fv_color: #c8eae9;
+
+  background-color: $fv_color;
+
+
+  // * {
+  //   box-sizing: border-box;
+  //   margin: 0;
+  //   padding: 0;
+  // }
+  // body {
+  //   height: 100vh;
+  //   display:grid;
+  //   justify-items: center;
+  //   align-items: center;
+  //   background-image: linear-gradient(110deg, #f93d66, #6d47d9);
+  // }
+  
+  .wrapper {
+    overflow: hidden;
+    // height: 330px;
+    height: 50vh;
+    // width: 560px;
+    width: 100%;
+    // border: 3px solid #272727;
+  }
+  
+  .sliding-background {
+    background: url(../img/bg.png) repeat-x;  
+    background-size: contain;
+    height: 100%;
+    width: 60000px;
+    animation: slide 60s linear infinite;
+  }
+  
+  @keyframes slide {
+    0%{
+      transform: translate3d(0, 0, 0);
+    }
+    100%{
+      transform: translate3d(-1692px, 0, 0);
+    }
+  }
+
+  &__container {
+    // margin-top: 80px;
+    // // max-width: 1366px;
+    // max-width: 1443px;
+    // width: 100%;
+    // margin-left: auto;
+    // margin-right: auto;
+    // background-image: url(../img/main.png);
+    // background-repeat: no-repeat;
+    // // background-size: contain;
+    // background-size: cover;
+    // background-position: center center;
+    // height: 591px;
+    // overflow: hidden;
+
+    padding-bottom: 10%;
+
+    @include max-screen($break_sp) {
+      // margin-top: 50px;
+      // background-image: url(../img/main-sp.png);
+      // // background-size: cover;
+      // background-position: left center;
+      // height: 480px;
+    }
+    @include max-screen($break_sp_small) {
+      // // background-image: url(../img/main-sp.png);
+      // // background-size: cover;
+      // background-position: center center;
+      // // height: 480px;
+    }
+  }
+
+  &__inner {
+    // padding-top: 122px;
+    padding-top: 20px;
+    // transform: translateX(50%);
+    padding-left: 50%;
+    @include size_calc(padding-left, 18rem, 68.3rem, 180px, 683px); //fix #4
+
+    @include max-screen($break_sp) {
+      transform: translateX(0);
+      margin-left: auto;
+      margin-right: auto;
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+  }
+
+  &__tit {
+    $font_size: 32;
+    $line_height: 53;
+    margin-bottom: 28px;
+    font-size: ($font_size) + px;
+    line-height: ($line_height / $font_size);
+
+    @include max-screen($break_sp) {
+      $font_size: 19;
+      $line_height: 34;
+      white-space: nowrap;
+      margin-bottom: 15px;
+      font-size: ($font_size) + px;
+      line-height: ($line_height / $font_size);
+    }
+
+
+
+    strong {
+      $font_size: 38;
+      $line_height: 53;
+      font-size: ($font_size) + px;
+      line-height: ($line_height / $font_size);
+
+      @include max-screen($break_sp) {
+        $font_size: 27;
+        $line_height: 38;
+        font-size: ($font_size) + px;
+        line-height: ($line_height / $font_size);
+      }
+
+      @include max-screen($break_sp_small) {
+        $font_size: 23;
+        font-size: ($font_size) + px;
+        line-height: 1.4
+      }
+    }
+  }
+
+  &__txt {
+    padding-left: 38px;
+
+    $font_size: 19;
+    $line_height: 34;
+    font-size: ($font_size) + px;
+    line-height: ($line_height / $font_size);
+
+    @include max-screen($break_sp) {
+      $font_size: 15;
+      $line_height: 23;
+      font-size: ($font_size) + px;
+      line-height: ($line_height / $font_size);
+    }
+
+    font-weight: 700;
+
+    @include max-screen($break_sp) {
+      padding-left: 0;
+    }
+  }
+
+  &__support {
+    @include max-screen($break_sp) {
+      letter-spacing: (-50/1000) + em;
+    }
+  }
+}

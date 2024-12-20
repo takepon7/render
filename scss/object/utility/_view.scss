@@ -1,0 +1,17 @@
+.u-view{
+    &--pc{
+        display: block;
+
+        @include max-screen($break_sp) {
+            display: none;
+          }
+       
+    }
+    &--sp{
+        display: none;
+
+        @include max-screen($break_sp) {
+            display: block;
+          }
+    }    
+}

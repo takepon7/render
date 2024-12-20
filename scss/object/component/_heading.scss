@@ -1,0 +1,68 @@
+.heading{
+    // background-color: aquamarine;
+    margin-bottom: 32px;
+    position: relative;
+    text-align: center;
+
+    @include max-screen($break_sp) {
+        margin-bottom: (15/ $sp_inner_width * 100%);
+      }
+
+    &::before{
+        content:"";
+        // background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)), url(../img/present.svg);
+        // background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+        //           url("../../media/examples/lizard.png");
+        background-image:url(../img/present2.svg);        
+        background-blend-mode:lighten;
+        height: 117px;
+        width: 117px;
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+
+        @include max-screen($break_sp) {
+            // background-image: url(../img/gear-sp.svg);
+            height: 64px;
+            width: 64px;
+          }
+    }
+
+    &--blue{
+        @extend .heading;
+        &::before{
+            background-image: url(../img/present2.svg);
+
+            // @include max-screen($break_sp) {
+            //     background-image: url(../img/gear-blue-sp.svg);
+            //   }
+        }
+    }
+
+    &__tit{
+        @include tit_font();
+        position: relative;
+
+        @include max-screen($break_sp) {
+            $font_size: 22;
+            // $line_height: 98;
+            font-size: ($font_size)+px;
+            // line-height: ( $line_height / $font_size);    
+          }
+    }
+
+    &__txt{
+        @include txt_font(14);
+        font-weight: 700;
+        position: relative;
+
+        @include max-screen($break_sp) {
+            $font_size: 12;
+            // $line_height: 98;
+            font-size: ($font_size)+px;
+            // line-height: ( $line_height / $font_size);    
+          }
+
+    }
+}

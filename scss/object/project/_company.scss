@@ -1,0 +1,102 @@
+.company {
+$company_color: #f0f3f5;
+$table_row_odd_color: #fafafa;
+
+  // padding-top: 85px;
+  padding-top: 200px;
+  padding-bottom: 100px;
+  background-color: $company_color;
+
+  @include max-screen($break_sp) {
+    // padding-top: 45px;
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+
+  &__table {
+    // background-color: $base_color;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: left;
+
+    border-collapse: separate;
+    border-spacing: 8px;
+    width: 60%;
+
+    @include max-screen($break_sp) {
+      border-spacing: 0 15px;
+      width: 100%;
+    }
+  }
+
+  &__trow {
+    &:nth-child(odd) th,
+    &:nth-child(odd) td {
+      background-color: $table_row_odd_color;
+
+      @include max-screen($break_sp) {
+        background-color: transparent;
+      }
+    }
+
+    @include max-screen($break_sp) {
+      height: auto;
+    }
+  }
+
+  &__ttit {
+    padding: 1em 17px;
+    background-color: $main_color;
+    vertical-align: baseline;
+    width: 126px;
+    font-weight: 700;
+    @include max-screen($break_sp) {
+      padding-left: (17 / $sp_inner_width * 100%);
+      padding-right: (17 / $sp_inner_width * 100%);
+      height: 42px;
+      background-color: $table_row_odd_color !important;
+      text-align: left;
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__tdata {
+    padding: 1em 10px;
+    background-color: $main_color;
+
+    @include max-screen($break_sp) {
+      background-color: $main_color !important;
+      // height: 42px;
+      padding-left: (17 / $sp_inner_width * 100%);
+      padding-right: (17 / $sp_inner_width * 100%);
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__prefix {
+    counter-reset: counter_prefix;
+    // @include max-screen($break_sp) {
+    padding-left: 2.5em !important;
+    // }
+
+    span {
+      // @include max-screen($break_sp) {
+      position: relative;
+      // }
+
+      &::before {
+        counter-increment: counter_prefix;
+        content: counter(counter_prefix) ". ";
+
+        // @include max-screen($break_sp) {
+        position: absolute;
+        left: -1.5em;
+        // }
+      }
+    }
+  }
+}

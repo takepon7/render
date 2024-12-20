@@ -1,0 +1,16 @@
+.container{
+  width: 100%;
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 150px;
+    padding-right: 150px;
+    @include padding_size_calc(2rem, 15rem, 20px, 150px);
+    text-align: center;
+
+    @include max-screen($break_sp) {
+        padding-left: (20 / $sp_width * 100%);
+        padding-right: (20 / $sp_width * 100%);
+      }
+
+}

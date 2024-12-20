@@ -1,0 +1,229 @@
+.gnav {
+  @include max-screen($break_sp) {
+    transform: translateX(120%);
+    background-color: rgba(#738ea3, 0.6);
+    color: #fff;
+    -webkit-overflow-scrolling: touch;
+    transition: all 0.3s ease;
+    // transition: transform 4s ease-in-out 1s;
+    height: 100vh;
+    // display: none;
+    visibility: hidden;
+    opacity: 0;
+    // padding: 80px 20px 50px;
+
+    &.is-open {
+      transform: translateX(0);
+      // display: block;
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__inner {
+      @include max-screen($break_sp) {
+        width: 169px;
+        height: 100vh;
+        // max-height: calc(100vh - 60px);
+        min-width: 169px;
+        // transform: translateX(120%);
+        background-color: #738ea3;
+        color: #fff;
+        // -webkit-overflow-scrolling: touch;
+        // transition: all 0.3s ease;
+        // height: 100vh;
+        padding: 80px 20px 50px;
+        margin-left: auto;
+        position: relative;
+
+        // &.is-open {
+        //   transform: translateX(0);
+        // }
+      }
+    }
+  }
+
+  &__wrapper {
+    //   flex: 1;
+    @include max-screen($break_sp) {
+      // overflow: auto;
+      // overflow: hidden;
+      position: absolute;
+      top: 0px;
+      right: 0;
+      z-index: 2;
+      // width: 50vw;
+      // width: 100%;
+      box-sizing: border-box;
+
+      &.is-open {
+        width: 100%;
+      }
+    }
+  }
+
+  &__hamburger {
+    position: absolute;
+    z-index: 3;
+    top: 5px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    // background: #8B6231;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &.is-open {
+      &__line {
+        position: absolute;
+        left: 9px;
+        width: 20px;
+        height: 3px;
+        border-radius: 3px;
+        content: "";
+        background: #1e2f69;
+        transition: all 0.3s ease;
+
+        &:nth-child(1) {
+          top: 10px;
+          &.is-open {
+            top: 18px;
+            background: #fff;
+            transform: rotate(-45deg);
+          }
+        }
+        &:nth-child(2) {
+          top: 18px;
+
+          &.is-open {
+            opacity: 0;
+          }
+        }
+        &:nth-child(3) {
+          top: 26px;
+          &.is-open {
+            top: 18px;
+            background: #fff;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    &__line {
+      position: absolute;
+      left: 9px;
+      width: 20px;
+      height: 3px;
+      border-radius: 3px;
+      content: "";
+      background: #1e2f69;
+      transition: all 0.3s ease;
+
+      &:nth-child(1) {
+        top: 10px;
+        &.is-open {
+          top: 18px;
+          background: #fff;
+          transform: rotate(-45deg);
+        }
+      }
+      &:nth-child(2) {
+        top: 18px;
+
+        &.is-open {
+          opacity: 0;
+        }
+      }
+      &:nth-child(3) {
+        top: 26px;
+        &.is-open {
+          top: 18px;
+          background: #fff;
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include max-screen($break_sp) {
+      display: block;
+    }
+
+    li + li {
+      border-left: 1px solid #000;
+
+      @include max-screen($break_sp) {
+        border-left: none;
+      }
+    }
+
+    &__tit {
+      @include txt_font();
+      font-weight: 700;
+      color: $main_color;
+      @include max-screen($break_sp) {
+        // font-size: 14px;
+        $font_size: 14;
+        $line_height: 24;
+        font-size: ($font_size) + px;
+        line-height: ($line_height / $font_size);
+      }
+    }
+
+    &__txt {
+      $font_size: 11;
+      $letter_spacing: 200;
+      $line_height: 17;
+      font-family: $eng_font;
+      font-size: ($font_size) + px;
+      font-weight: 300;
+      letter-spacing: ($letter_spacing / 1000) + em;
+      line-height: ($line_height / $font_size);
+      color: $main_color;
+      text-transform: uppercase;
+
+      @include max-screen($break_sp) {
+        // font-size: 14px;
+        $font_size: 8;
+        $line_height: 12;
+        font-size: ($font_size) + px;
+        line-height: ($line_height / $font_size);
+        margin-bottom: 37px;
+      }
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    padding-right: 1em;
+    padding-left: 1em;
+
+    @include max-screen($break_sp) {
+      display: block;
+      padding-right: 0;
+      padding-left: 0;
+      $font_size: 12;
+      $line_height: 30;
+      font-size: ($font_size) + px;
+      line-height: ($line_height / $font_size);
+    }
+
+    a {
+      @include max-screen($break_sp) {
+        // background-color: #738EA3;
+        color: #fff;
+      }
+    }
+  }
+
+  &__img {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}

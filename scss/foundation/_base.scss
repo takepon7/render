@@ -1,0 +1,30 @@
+//共通部分
+html {
+  font-size: 62.5%; //10px;
+}
+body {
+  width: 100%;
+  @include txt_font();
+
+  @include max-screen($break_sp) {
+    @include txt_font(14);
+  }
+}
+
+li {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #3d1617;
+
+  &:hover{
+    opacity: .7;
+  }
+}

@@ -1,0 +1,109 @@
+.feature {
+  background-color: $base_color;
+
+  padding-bottom: 103px;
+
+  // 
+  position: relative;
+  // height: 80vh;
+
+  @include max-screen($break_sp) {
+    padding-bottom: 50px;
+    // height: 160vh;
+    }
+
+  // &::before {
+  //     content: '';
+  //     position: absolute;
+  //     bottom: 0;
+  //     width: 0;
+  //     height: 0;
+  //     border-style: solid;
+  //     border-width: 100px 100px 0 100px;
+  //     border-color: $base_color transparent transparent transparent;
+  //     left: 50%;
+  //     transform: translateX(-50%) translateY(100%);
+  //   }
+
+  &__txt {
+    margin-bottom: 30px;
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-between;
+
+    li + li {
+    //   padding-left: 20px;
+      margin-left: 20px;
+
+      @include max-screen($break_sp) {
+        margin-left: 0;
+        margin-top: (20 / $sp_inner_width * 100%);
+        }
+    }
+  }
+
+  &__item {
+    width: 30%;
+    padding: 0 0 36px;
+    background-color: #FFFFFF;
+    // background-color: bisque;
+    border-radius: 6px;
+    box-shadow: 0 3px 40px rgba(#6D9AB5, .16);
+
+    @include max-screen($break_sp) {
+      width: 100%;
+    }
+
+    &__tit {
+      padding-top: 10%;
+      @include txt_font(22, true);
+      font-weight: 700;
+    }
+
+    &__txt {
+      padding: 0 10%;
+      text-align: left;
+    }
+
+    // background-image: url(../img/visuarize.jpg);
+
+    // background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(255, 255, 0, 0.5)),
+    // url("../../media/examples/lizard.png");
+  }
+
+  &__img{
+      width: 130px;
+    //   height: 130px;
+    // text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 100%;
+  }
+}
+
+
+.custom-shape-divider-top-1631532852 {
+  position: absolute;
+  // top: 0;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+  }
+
+  .shape-fill {
+    fill: $base_color;
+  }
+}
+

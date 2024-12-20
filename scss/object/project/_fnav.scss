@@ -1,0 +1,51 @@
+.fnav {
+  position: relative;
+  color: $main_color;
+
+  &__wrapper {
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    li + li {
+      border-left: 1px solid $main_color;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    padding-right: 1em;
+    padding-left: 1em;
+
+    $font_size: 14;
+    $letter_spacing: 0;
+    $line_height: 24;
+
+    @include max-screen($break_sp) {
+      $font_size: 12;
+      // $letter_spacing: 0;
+      $line_height: 20;
+    }
+
+    font-family: $ja_font;
+    font-size: ($font_size) + px;
+    font-weight: 500;
+    // letter-spacing: ($letter_spacing / 1000) + em;
+    line-height: ( $line_height / $font_size);
+   
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    a {
+      @include max-screen($break_sp) {
+        color: $main_color;
+      }
+    }
+  }
+}

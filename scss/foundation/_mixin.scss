@@ -1,0 +1,133 @@
+//sp
+@mixin max-screen($break-point) {
+  @media screen and (max-width: $break-point) {
+    @content;
+  }
+}
+
+//pc
+@mixin min-screen($break-point) {
+  @media screen and (min-width: $break-point) {
+    @content;
+  }
+}
+
+//font
+@mixin txt_font($font_size: 16, $margin_bottom: false) {
+
+  // $font_size: 16;
+  font-size: ($font_size) + px;
+  font-weight: 500;
+  $letter_spacing: 0;
+  $line_height: 27;
+  font-family: $ja_font;
+  color: $txt_color;
+
+  @if $font_size == 14 {
+    // $font_size: 16;
+    $letter_spacing: 0;
+    $line_height: 25;
+  } @else if $font_size == 22 {
+    $letter_spacing: 0;
+    $line_height: 32;
+  }@else if $font_size == 23 {
+    $letter_spacing: 0;
+    $line_height: 40;
+  }
+
+  @if $margin_bottom {
+    margin-bottom: 20px;
+  }
+
+  @if $letter_spacing > 0 {
+    letter-spacing: ($letter_spacing / 1000) + em;
+  } @else {
+    letter-spacing: 0;
+  }
+  line-height: ($line_height / $font_size);
+}
+
+@mixin tit_font($font_size: 40, $margin_bottom: false) {
+
+  // $font_size: 16;
+  font-size: ($font_size) + px;
+  font-weight: 700;
+  $letter_spacing: 200;
+  $line_height: 60;
+  font-family: $eng_font;
+  color: $tit_color;
+  text-transform: uppercase;
+
+  @if $font_size == 14 {
+    $letter_spacing: 0;
+    $line_height: 27;
+  } @else if $font_size == 18 {
+    $letter_spacing: 0;
+    $line_height: 27;
+  }
+
+  @if $margin_bottom {
+    margin-bottom: 20px;
+  }
+
+  @if $letter_spacing > 0 {
+    letter-spacing: ($letter_spacing / 1000) + em;
+  } @else {
+    letter-spacing: 0;
+  }
+  line-height: ($line_height / $font_size);
+}
+
+@mixin padding_size_calc(
+  $min_size_rem,
+  $max_size_rem,
+  $min_size_px,
+  $max_size_px,
+  $min_screen_width: 56rem,
+  $max_screen_width: 136.6rem
+) {
+  $x: $min_screen_width / 100;
+  $x2: (
+    100 * ($max_size_rem - $min_size_rem) /
+      ($max_screen_width - $min_screen_width)
+  );
+
+  padding-left: calc(#{$min_size_rem} + ((1vw - #{$x}) * #{$x2}));
+  padding-right: calc(#{$min_size_rem} + ((1vw - #{$x}) * #{$x2}));
+
+  @include max-screen($break_sp) {
+    padding-left: $min_size_px;
+    padding-right: $min_size_px;
+  }
+
+  @include min-screen($break_pc) {
+    padding-left: $max_size_px;
+    padding-right: $max_size_px;
+  }
+}
+
+@mixin size_calc(
+  $property,
+  $min_size_rem,
+  $max_size_rem,
+  $min_size_px,
+  $max_size_px,
+  $min_screen_width: 56rem,
+  $max_screen_width: 136.6rem
+) {
+  $x: $min_screen_width / 100;
+  $x2: (
+    100 * ($max_size_rem - $min_size_rem) /
+      ($max_screen_width - $min_screen_width)
+  );
+
+  #{$property}: calc(#{$min_size_rem} + ((1vw - #{$x}) * #{$x2}));
+
+  @include max-screen($break_sp) {
+    #{$property}: $min_size_px;
+  }
+
+  @include min-screen($break_pc) {
+    #{$property}: $max_size_px;
+  }
+}

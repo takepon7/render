@@ -1,0 +1,38 @@
+.u-linebreak {
+
+    &:after {
+          content: "\A";
+          white-space: pre;
+      }
+
+  &--pc {
+    &:after {
+      content: "\A";
+      white-space: pre;
+
+      @include max-screen($break_sp) {
+        content: "";
+        white-space: initial;
+      }
+    }
+  }
+  &--sp {
+    &:after {
+      content: "";
+      white-space:initial;
+
+      @include max-screen($break_sp) {
+        content: "\A";
+        white-space: pre;
+      }
+    }
+  }
+
+  &--iblock {
+    display: inline-block;
+  }
+
+  &--nowrap {
+    white-space:nowrap;
+  }
+}
