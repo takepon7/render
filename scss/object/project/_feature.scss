@@ -85,25 +85,28 @@
   }
 }
 
-
-.custom-shape-divider-top-1631532852 {
-  position: absolute;
-  // top: 0;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-
-  svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 100px;
+.divider{
+  &__shape{
+    position: absolute;
+    // top: 0;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    border: $base_color solid
+  
+    svg {
+      position: relative;
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 100px;
+    }
+  
+    &__fill{
+      fill: $base_color;
+    }
   }
 
-  .shape-fill {
-    fill: $base_color;
-  }
 }
 
