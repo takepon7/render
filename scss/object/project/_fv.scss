@@ -82,6 +82,10 @@
     padding-left: 50%;
     @include size_calc(padding-left, 18rem, 68.3rem, 180px, 683px); //fix #4
 
+    @include max-screen(920px) {
+      padding-left: 10%;
+    }
+
     @include max-screen($break_sp) {
       transform: translateX(0);
       margin-left: auto;
