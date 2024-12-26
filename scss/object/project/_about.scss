@@ -43,6 +43,10 @@
   &__content{
     text-align: left;
     padding: 50px 80px;
+    
+    @include max-screen($break_sp) {
+      padding: 0 10%;
+    }
   }
 
   &__txt {
